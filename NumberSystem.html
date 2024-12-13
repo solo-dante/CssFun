@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Indian Number System from Internation System</title>
+	<style type="text/css">
+		.converter {
+			font-family: sans-serif;
+		}
+
+		.converter input {
+			border: none;
+			border-bottom: 1px dashed #888;
+			text-align: right;
+			width: 120px;
+		}
+
+		.converter div {
+			color: #aaa;
+			margin-bottom: 8px;
+		}
+
+		.converter .indian {
+			color: black;
+		}
+
+		.converter .unit {
+			display: inline-block;
+			margin-left: 8px;
+			width: 76px;
+		}
+
+		.converter .zero {
+			font-size: 14px;
+			margin-left: 8px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="converter">
+		<div>
+			<input type="number" divisor="1"></input>
+		</div>
+		<div>
+			<input type="number" divisor="1e3"></input><span class="unit">thousand</span><span class="zero">3
+				zeros</span>
+		</div>
+		<div class="indian">
+			<input type="number" divisor="1e5"></input><span class="unit">lakh</span><span class="zero">5 zeros</span>
+		</div>
+		<div>
+			<input type="number" divisor="1e6"></input><span class="unit">million</span><span class="zero">6
+				zeros</span>
+		</div>
+		<div class="indian">
+			<input type="number" divisor="1e7"></input><span class="unit">crore</span><span class="zero">7 zeros</span>
+		</div>
+		<div>
+			<input type="number" divisor="1e9"></input><span class="unit">billion</span><span class="zero">9
+				zeros</span>
+		</div>
+		<div>
+			<input type="number" divisor="1e12"></input><span class="unit">trillion</span><span class="zero">12
+				zeros</span>
+		</div>
+		<div class="indian">
+			<input type="number" divisor="1e12"></input><span class="unit">lakh crore</span><span class="zero">12
+				zeros</span>
+		</div>
+	</div>
+	<div src="credit">
+		<a href="https://observablehq.com/@harrystevens/indian-number-system-converter" target="_blank">Credit</a>
+	</div>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', () => {
+			// Process divisions on page load
+			const inputs = document.querySelectorAll("input");
+
+			inputs.forEach((i0, i) => {
+				i0.addEventListener("keyup", ({ target }) => {
+					const v = +target.value * +target.getAttribute("divisor");
+					inputs.forEach(i1 => {
+						i1.value = v / +i1.getAttribute("divisor");
+					});
+				});
+
+				if (i === 0) i0.focus();
+			});
+			return "Happy converting!"
+			// Optionally, attach to input changes if you want real-time updates
+			// document.addEventListener('input', coner);
+		});
+	</script>
+</body>
+
+</html>

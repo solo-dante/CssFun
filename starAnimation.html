@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Star Animation</title>
+	<!-- 
+	https://codepen.io/argyleink/pen/wvOKbyL/2d672362df9ac37cf6920b5b6bc3a243?editors=1100 
+	-->
+	<style>
+		@keyframes spin {
+			to {
+				transform: rotateY(1turn);
+			}
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			div {
+				animation: spin linear;
+				animation-timeline: view();
+				animation-range: contain;
+			}
+		}
+
+		@layer demo.support {
+			body {
+				/* give us something to scroll*/
+				min-block-size: 300dvh;
+			}
+
+			body, div {
+				display: grid;
+				place-content: center;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div><img src="https://assets.codepen.io/2585/star-power.svg" alt="super mario golden star" width="965" height="377"></div>
+</body>
+</html>
